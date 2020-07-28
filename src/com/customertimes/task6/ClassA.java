@@ -19,6 +19,7 @@ public class ClassA {
     }
 
     public static void readData() {
+        boolean exitTrigger = true;
         try {
             Scanner in = new Scanner(System.in);
             System.out.println("Input number: ");
@@ -26,8 +27,10 @@ public class ClassA {
         } catch (InputMismatchException e) {
             System.out.println("You entered the incorrect value");
             System.out.println("Previous numbers: " + result.toString());
+            exitTrigger = false;
         } finally {
-            readData();
+            if (exitTrigger)
+                readData();
         }
     }
 }
